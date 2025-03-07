@@ -71,3 +71,14 @@ declare interface Comment {
   };
   children: Comment[];
 }
+
+declare interface Reactions {
+  current_user: {
+    id: null;
+  };
+  reactions: [];
+  article_reaction_counts: {
+    category: "like" | "unicorn" | "exploding_head" | "raised_hands" | "fire";
+    count: number;
+  }[];
+}

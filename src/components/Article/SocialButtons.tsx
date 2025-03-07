@@ -1,4 +1,6 @@
 import { ChatCircleDots, Heart } from "@phosphor-icons/react";
+import { useRef } from "react";
+import { Reactions, ReactionsHandler } from "../Feed/Reactions";
 
 type SocialButtonsProps = {
   article: Article;
@@ -9,6 +11,14 @@ export const SocialButtons = ({
   article,
   onCommentsClick,
 }: SocialButtonsProps) => {
+  const reactionsRef = useRef<ReactionsHandler>(null);
+
+  const reactionHandler = (articleId: number) => {
+    if (reactionsRef.current) {
+      reactionsRef.current.toggle(articleId);
+    }
+  };
+
   return (
     <div className="flex flex-col gap-4 justify-end">
       <a
@@ -31,7 +41,13 @@ export const SocialButtons = ({
         />
       </a>
       <div className="flex flex-col text-center gap-1 w-10 justify-center">
-        <Heart className="text-gray-100 w-10 h-10" weight="fill" />
+        <button 
+          className="relative"
+          onClick={() => reactionHandler(article.id)}
+        >
+          <Heart className="text-gray-100 w-10 h-10" weight="fill" />
+          <Reactions ref={reactionsRef} />
+        </button>
         <p className="text-gray-100 text-sm">
           {article.public_reactions_count}
         </p>

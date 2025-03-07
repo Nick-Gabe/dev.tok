@@ -4,9 +4,14 @@ import { useEffect, useMemo, useState } from "react";
 import { Tab } from "../components/Feed/Tabs";
 
 const API_URL = "https://dev.to/api";
+const API_REACTIONS_URL = "https://dev.to";
 
 export const api = axios.create({
   baseURL: API_URL,
+});
+
+export const api_reactions = axios.create({
+  baseURL: API_REACTIONS_URL,
 });
 
 type UseArticles = {
