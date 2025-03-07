@@ -10,7 +10,7 @@ const copyToClipboard = (article: Article) => {
 }
 
 const reportWithReferrer = (article: Article) => {
-  window.location.href = `https://dev.to/report-abuse?referrer=${encodeURIComponent(article.url)}`;
+  window.open(`https://dev.to/report-abuse?url=${encodeURIComponent(article.url)}`, '_blank');
 }
 
 
