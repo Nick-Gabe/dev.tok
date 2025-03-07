@@ -13,7 +13,7 @@ export const SocialButtons = ({
 }: SocialButtonsProps) => {
   const reactionsRef = useRef<ReactionsHandler>(null);
 
-  const reactionHandler = (articleId: number) => {
+  const showReactions = (articleId: number) => {
     if (reactionsRef.current) {
       reactionsRef.current.toggle(articleId);
     }
@@ -43,7 +43,7 @@ export const SocialButtons = ({
       <div className="flex flex-col text-center gap-1 w-10 justify-center">
         <button 
           className="relative"
-          onClick={() => reactionHandler(article.id)}
+          onClick={() => showReactions(article.id)}
         >
           <Heart className="text-gray-100 w-10 h-10" weight="fill" />
           <Reactions ref={reactionsRef} />

@@ -74,9 +74,19 @@ declare interface Comment {
 
 declare interface Reactions {
   current_user: {
-    id: null;
+    id: string | null;
   };
-  reactions: [];
+  reactions: {
+    category: string;
+    created_at: string;
+    id: number;
+    points: number;
+    reactable_id: number;
+    reactable_type: string;
+    status: string;
+    updated_at: string;
+    user_id: number;
+  }[];
   article_reaction_counts: {
     category: "like" | "unicorn" | "exploding_head" | "raised_hands" | "fire";
     count: number;

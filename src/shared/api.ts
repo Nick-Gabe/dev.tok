@@ -3,10 +3,23 @@ import axios from "axios";
 import { useEffect, useMemo, useState } from "react";
 import { Tab } from "../components/Feed/Tabs";
 
-const API_URL = "https://dev.to/api";
-
-export const api = axios.create({
-  baseURL: API_URL,
+/**
+ * Dev.to is based on Forem, an open-source platform for building communities.
+ * Generic operations such as articles and comments are available at the /api endpoint.
+ */
+const DEVTO_GENERIC_API_URL = "https://dev.to/api";
+/**
+ * Dev.to has added new features like reactions and bookmarks, which are served
+ * directly at the root of the domain, not under the /api endpoint.
+ */
+const DEVTO_SPECIFIC_API_URL = "https://dev.to";
+// Axios instance for Forem-derived generic API calls (e.g., articles, comments)
+export const devtoForemApi = axios.create({
+  baseURL: DEVTO_GENERIC_API_URL,
+});
+// Axios instance for Dev.to-specific API calls (e.g., reactions, bookmarks)
+export const devtoCustomApi = axios.create({
+  baseURL: DEVTO_SPECIFIC_API_URL,
 });
 
 type UseArticles = {
@@ -47,7 +60,7 @@ export const useArticles = ({ enabled, type, tags = "" }: UseArticles) => {
 
         setTagPages((prev) => ({ ...prev, [randomTag]: prev[randomTag] + 1 }));
       }
-      return (await api.get(`${url}?${params}`)).data as Article[];
+      return (await devtoForemApi.get(`${url}?${params}`)).data as Article[];
     },
   });
 

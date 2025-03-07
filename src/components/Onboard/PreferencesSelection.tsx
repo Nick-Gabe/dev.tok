@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { api } from "../../shared/api";
+import { devtoForemApi } from "../../shared/api";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
@@ -22,7 +22,7 @@ export const PreferencesSelection = ({
       const params = new URLSearchParams({
         per_page: "50",
       });
-      return ((await api.get("/tags?" + params)).data as Tag[]).filter(
+      return ((await devtoForemApi.get("/tags?" + params)).data as Tag[]).filter(
         (tag) => tag.bg_color_hex
       );
     },
