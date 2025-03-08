@@ -23,5 +23,11 @@
   "comments": {
     "title": "Comments",
     "empty": "No comments yet"
+  },
+  "socialButtons": {
+    "copy": "Copy link",
+    "share": "Share with",
+    "report": "Report",
+    "copiedSuccessfully": "Link copied successfully!"
   }
 }
