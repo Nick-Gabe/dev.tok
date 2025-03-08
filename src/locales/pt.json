@@ -22,6 +22,13 @@
   },
   "comments": {
     "title": "Comentários",
-    "empty": "Ainda não há comentários"
+    "empty": "Ainda não há comentários",
+    "copiedSuccessfully": "Link copiado com sucesso!"
+  },
+  "socialButtons": {
+    "copy": "Copiar link",
+    "share": "Compartilhar com",
+    "report": "Denunciar",
+    "copiedSuccessfully": "Link copiado com sucesso!"
   }
 }
