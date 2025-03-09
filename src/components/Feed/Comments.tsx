@@ -43,6 +43,7 @@ export const Comments = forwardRef<CommentsHandler>((_, ref) => {
           setIsOpen(false);
         }
       }}
+      aria-hidden={!isOpen}
     >
       <motion.div
         className="fixed inset-x-0 bottom-0 h-[calc(70vh+3.5rem)] max-w-[700px] mx-auto bg-white rounded-t-2xl shadow-lg"
