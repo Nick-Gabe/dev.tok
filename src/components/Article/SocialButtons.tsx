@@ -1,4 +1,6 @@
 import { ChatCircleDots, DotsThreeOutline, Heart } from "@phosphor-icons/react";
+import { useRef } from "react";
+import { Reactions, ReactionsHandler } from "../Feed/Reactions";
 import { useTranslation } from "react-i18next";
 
 type SocialButtonsProps = {
@@ -12,6 +14,14 @@ export const SocialButtons = ({
   onCommentsClick,
 }: SocialButtonsProps) => {
   const { t } = useTranslation();
+  const reactionsRef = useRef<ReactionsHandler>(null);
+
+  const showReactions = (articleId: number) => {
+    if (reactionsRef.current) {
+      reactionsRef.current.toggle(articleId);
+    }
+  };
+
   const copyToClipboard = (article: Article) => {
     navigator.clipboard.writeText(article.url)
     alert(t('socialButtons.copiedSuccessfully'))
@@ -39,7 +49,13 @@ export const SocialButtons = ({
         />
       </a>
       <div className="flex flex-col text-center gap-1 w-10 justify-center">
-        <Heart className="text-gray-100 w-10 h-10" weight="fill" />
+        <button 
+          className="relative"
+          onClick={() => showReactions(article.id)}
+        >
+          <Heart className="text-gray-100 w-10 h-10" weight="fill" />
+          <Reactions ref={reactionsRef} />
+        </button>
         <p className="text-gray-100 text-sm">
           {article.public_reactions_count}
         </p>

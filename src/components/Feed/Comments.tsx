@@ -1,7 +1,7 @@
 import { forwardRef, useImperativeHandle, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
-import { api } from "../../shared/api";
+import { devtoForemApi } from "../../shared/api";
 import sanitizeHtml from "sanitize-html";
 import { Spinner, X } from "@phosphor-icons/react";
 import { formatDistance } from "date-fns/formatDistance";
@@ -21,7 +21,7 @@ export const Comments = forwardRef<CommentsHandler>((_, ref) => {
       const params = new URLSearchParams({
         a_id: articleId?.toString() ?? "",
       });
-      return (await api.get("/comments?" + params)).data as Comment[];
+      return (await devtoForemApi.get("/comments?" + params)).data as Comment[];
     },
   });
   const [isOpen, setIsOpen] = useState(false);
