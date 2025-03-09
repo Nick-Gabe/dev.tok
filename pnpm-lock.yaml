@@ -70,15 +70,6 @@ devDependencies:
   daisyui:
     specifier: ^5.0.0
     version: 5.0.0
-  eslint:
-    specifier: ^9.21.0
-    version: 9.21.0
-  eslint-plugin-react-hooks:
-    specifier: ^5.1.0
-    version: 5.2.0(eslint@9.21.0)
-  eslint-plugin-react-refresh:
-    specifier: ^0.4.19
-    version: 0.4.19(eslint@9.21.0)
   globals:
     specifier: ^15.15.0
     version: 15.15.0
@@ -1527,23 +1518,6 @@ packages:
   /escape-string-regexp@4.0.0:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
-
-  /eslint-plugin-react-hooks@5.2.0(eslint@9.21.0):
-    resolution: {integrity: sha512-+f15FfK64YQwZdJNELETdn5ibXEUQmW1DZL6KXhNnc2heoy/sg9VJJeT7n8TlMWouzWqSWavFkIhHyIbIAEapg==}
-    engines: {node: '>=10'}
-    peerDependencies:
-      eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
-    dependencies:
-      eslint: 9.21.0
-    dev: true
-
-  /eslint-plugin-react-refresh@0.4.19(eslint@9.21.0):
-    resolution: {integrity: sha512-eyy8pcr/YxSYjBoqIFSrlbn9i/xvxUFa8CjzAYo9cFjgGXqq1hyjihcpZvxRLalpaWmueWR81xn7vuKmAFijDQ==}
-    peerDependencies:
-      eslint: '>=8.40'
-    dependencies:
-      eslint: 9.21.0
-    dev: true
 
   /eslint-scope@8.2.0:
     resolution: {integrity: sha512-PHlWUfG6lvPc3yvP5A4PNyBL1W8fkDUccmI21JUu/+GKZBoH/W5u6usENXUrWFRsyoW5ACUjFGgAFQp5gUlb/A==}
