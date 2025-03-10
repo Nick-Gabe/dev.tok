@@ -29,5 +29,11 @@
     "share": "Share with",
     "report": "Report",
     "copiedSuccessfully": "Link copied successfully!"
+  },
+  "search": {
+    "recentsSearch": "Recent search",
+    "clearAll": "Clear all",
+    "closeButton": "Close",
+    "searchPlaceholder": "Search..."
   }
 }

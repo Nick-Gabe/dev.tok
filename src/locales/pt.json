@@ -30,5 +30,11 @@
     "share": "Compartilhar com",
     "report": "Denunciar",
     "copiedSuccessfully": "Link copiado com sucesso!"
+  },
+  "search": {
+    "recentsSearch": "Pesquisas recentes",
+    "clearAll": "Limpar todos",
+    "closeButton": "Fechar",
+    "searchPlaceholder": "Pesquisar..."
   }
 }
