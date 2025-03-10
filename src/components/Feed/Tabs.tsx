@@ -1,4 +1,7 @@
+import { MagnifyingGlass } from "@phosphor-icons/react";
 import { useTranslation } from "react-i18next";
+import { SearchComponent, SearchComponentHandler } from "../Search/SearchComponent";
+import { useRef } from "react";
 
 const tabs = ["popular", "for_you", "latest"] as const;
 export type Tab = (typeof tabs)[number];
@@ -10,9 +13,16 @@ type TabsProps = {
 
 export const Tabs = ({ onSelectTab, selectedTab }: TabsProps) => {
   const { t } = useTranslation();
+  const searchRef = useRef<SearchComponentHandler>(null);
+
+  const showSearch = () => {
+    if (searchRef.current) {
+      searchRef.current.toggle();
+    }
+  }
 
   return (
-    <div role="tablist" className="tabs tabs-border fixed top-4 z-40">
+    <div role="tablist" className="tabs tabs-border items-center fixed top-4 z-40">
       {tabs.map((tab) => (
         <a
           key={tab}
@@ -28,6 +38,15 @@ export const Tabs = ({ onSelectTab, selectedTab }: TabsProps) => {
           {t(`tabs.${tab}`)}
         </a>
       ))}
+
+      <div 
+        className="absolute -right-6"
+        onClick={showSearch}
+      >
+        <MagnifyingGlass color="#fff" size={24} />
+      </div>
+
+      <SearchComponent ref={searchRef} />
     </div>
   );
 };
