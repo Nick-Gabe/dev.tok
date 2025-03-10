@@ -2,12 +2,15 @@ import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useSta
 import { motion } from "framer-motion";
 import { MagnifyingGlass, X } from "@phosphor-icons/react";
 import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export type SearchComponentHandler = {
     toggle: () => void;
 }
 
 export const SearchComponent = forwardRef<SearchComponentHandler>((_, ref) => {
+    const { t } = useTranslation();
+  
   const [isOpen, setIsOpen] = useState(false);
   const [historic, setHistoric] = useState<Array<string>>([]);
   const searchRef = useRef<HTMLInputElement>(null);
@@ -77,7 +80,7 @@ export const SearchComponent = forwardRef<SearchComponentHandler>((_, ref) => {
         <div className="p-6">
           <button 
             onClick={() => setIsOpen(!isOpen)}
-            aria-label="Fechar"
+            aria-label={t("search.closeButton")}
             className="ml-auto mb-8 block"
           >
             <X size={32} color="#fff" />
@@ -88,7 +91,7 @@ export const SearchComponent = forwardRef<SearchComponentHandler>((_, ref) => {
               type="text" 
               name="search" 
               id="search"
-              placeholder="Pesquisar..."
+              placeholder={t("search.searchPlaceholder")}
               ref={searchRef}
               className="bg-white w-full h-10 px-4 outline-none text-black placeholder:text-black" 
             />
@@ -106,8 +109,8 @@ export const SearchComponent = forwardRef<SearchComponentHandler>((_, ref) => {
           {historic.length > 0 ? (
             <>
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-lg text-white font-semibold">Pesquisas recentes</h2>
-                <button onClick={removeAllSearchHistoricItem}>Limpar todos</button>
+                <h2 className="text-lg text-white font-semibold">{t("search.recentsSearch")}</h2>
+                <button onClick={removeAllSearchHistoricItem}>{t("search.clearAll")}</button>
               </div>
               <div className="overflow-y-scroll h-[70dvh]">
                 {historic.map(item => (
