@@ -22,6 +22,7 @@
     "react-dom": "^19.0.0",
     "react-i18next": "^15.4.1",
     "react-infinite-scroll-component": "^6.1.0",
+    "react-router-dom": "^7.3.0",
     "sanitize-html": "^2.14.0",
     "tailwindcss": "^4.0.9"
   },
