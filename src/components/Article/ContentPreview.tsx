@@ -22,7 +22,7 @@ export const ContentPreview = ({ article }: ContentPreviewProps) => {
       </div>
       <hr className="mb-4" />
       <p className="mb-4 hyphens-auto">{article.description}</p>
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-1">
         <a href={article.url} target="_blank" rel="noopener noreferrer">
           <button className="btn btn-outline">{t("forYou.readMore")}</button>
         </a>
